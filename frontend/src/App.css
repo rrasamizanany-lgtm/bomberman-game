@@ -1,0 +1,270 @@
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+h1 {
+  color: #667eea;
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.input-group {
+  margin: 20px 0;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #5568d3;
+}
+
+.error {
+  color: #e74c3c;
+  padding: 10px;
+  margin: 10px 0;
+  background: #ffe6e6;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.status {
+  margin: 20px 0;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.players-list {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.players-list h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.player-item {
+  padding: 8px;
+  margin: 5px 0;
+  background: #f5f5f5;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.player-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #333;
+}
+
+.game-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.game-info {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+}
+
+.game-info h3 {
+  color: #667eea;
+  margin-bottom: 15px;
+}
+
+.info-section {
+  margin: 15px 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.info-section:last-child {
+  border-bottom: none;
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.status-badge {
+  padding: 3px 8px;
+  background: #ddd;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-badge.alive {
+  background: #2ecc71;
+  color: white;
+}
+
+.status-badge.dead {
+  background: #e74c3c;
+  color: white;
+}
+
+.winner-message {
+  padding: 20px;
+  background: #2ecc71;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.controls {
+  margin-top: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #666;
+}
+
+.controls p {
+  margin: 5px 0;
+}
+
+.waiting-screen {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  color: white;
+  min-height: 500px;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+}
+
+.waiting-screen h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.waiting-screen img {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.waiting-screen p {
+  font-size: 18px;
+  margin: 15px 0;
+}
+
+.players-list-waiting {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 30px 0;
+  min-width: 250px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.player-waiting-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  color: white;
+  font-size: 16px;
+}
+
+.color-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid white;
+  flex-shrink: 0;
+}
+
+.game-wrapper {
+  width: 100%;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  margin: 20px 0;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4ecdc4, #44a08d);
+  transition: width 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.countdown {
+  padding: 20px;
+  text-align: center;
+}
