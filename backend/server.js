@@ -5,18 +5,31 @@ import cors from 'cors';
 import { v4 as uuidv4 } from 'uuid';
 
 const app = express();
-app.use(cors());
+
+// Trust proxy headers from reverse proxies (important for Render.com and other services)
+app.set('trust proxy', 1);
+
+// CORS middleware with explicit configuration
+const corsOptions = {
+  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  credentials: true,
+  allowedHeaders: ['Content-Type']
+};
+
+app.use(cors(corsOptions));
 app.use(express.static('public'));
+
+// Handle preflight requests explicitly
+app.options('*', cors(corsOptions));
 
 const server = http.createServer(app);
 const io = new Server(server, {
   transports: ['websocket', 'polling'],
-  cors: {
-    origin: process.env.CLIENT_URL || 'http://localhost:3000',
-    methods: ['GET', 'POST'],
-    credentials: true,
-    allowEIO3: true
-  }
+  cors: corsOptions,
+  allowEIO3: true,
+  pingInterval: 25000,
+  pingTimeout: 60000
 });
 
 const PORT = process.env.PORT || 5000;

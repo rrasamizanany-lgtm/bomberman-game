@@ -12,7 +12,16 @@ function App() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const newSocket = io(process.env.REACT_APP_SERVER_URL || 'http://localhost:5000');
+    const socketUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:5000';
+    console.log('🔌 Connecting to socket server:', socketUrl);
+    
+    const newSocket = io(socketUrl, {
+      transports: ['websocket', 'polling'],
+      reconnection: true,
+      reconnectionDelay: 1000,
+      reconnectionDelayMax: 5000,
+      reconnectionAttempts: 5
+    });
     setSocket(newSocket);
 
     // Store socket ID when connection is established
