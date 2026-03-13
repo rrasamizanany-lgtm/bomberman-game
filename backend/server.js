@@ -10,10 +10,12 @@ app.use(express.static('public'));
 
 const server = http.createServer(app);
 const io = new Server(server, {
+  transports: ['websocket', 'polling'],
   cors: {
     origin: process.env.CLIENT_URL || 'http://localhost:3000',
     methods: ['GET', 'POST'],
-    credentials: true
+    credentials: true,
+    allowEIO3: true
   }
 });
 
